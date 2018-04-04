@@ -1,0 +1,25 @@
+.app-wrap {
+
+}
+
+.txt {
+  text-align: center;
+  font-size: 40px;
+  line-height: 2em;
+}
+
+.ctx-wrap {
+  display: flex;
+}
+
+.router-list {
+  flex: 0 200px;
+  padding: 10px;
+  border: #ddd 1px solid;
+  margin-left: 10px;
+}
+
+.router-view {
+  padding: 10px;
+  flex: 1;
+}
