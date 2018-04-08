@@ -4,11 +4,12 @@ import Tree from '../pages/Tree/Tree';
 import RouterTest from '../pages/RouterTest/RouterTest';
 import AuthA from '../pages/RouterTest/src/AuthA';
 import AuthB from '../pages/RouterTest/src/AuthB';
+import Login from '../pages/RouterTest/src/Login';
 
 const rawRouterList = [
-  {
-    path: '/'
-  },
+  // {
+  //   path: '/'
+  // },
   {
     path: '/HelloScss',
     component: HelloScss
@@ -26,7 +27,8 @@ const rawRouterList = [
     component: RouterTest,
     child: [
       {path: 'AuthA', component: AuthA},
-      {path: 'AuthB', component: AuthB}
+      {path: 'AuthB', component: AuthB, requireLogin: true},
+      {path: 'Login', component: Login}
     ]
   }
 ];

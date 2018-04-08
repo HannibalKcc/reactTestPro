@@ -23,6 +23,10 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
+    // 关闭注释空格问题
+    'spaced-comment': 0,
+    // 允许空行的默认缩进
+    'no-trailing-spaces': ['error', {'skipBlankLines': true}],
     semi: ['error', 'always'],
     // 不限制引号
     'quotes': 0,

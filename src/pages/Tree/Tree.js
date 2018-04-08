@@ -20,7 +20,7 @@ class Tree extends React.Component {
                 <TreeNode txt="胡汉重六"></TreeNode>
                 <TreeNode txt="胡汉重六"></TreeNode>
               </TreeNode>
-              <TreeNode txt="123胡汉重五"></TreeNode>
+              <TreeNode txt="胡汉重五"></TreeNode>
             </TreeNode>
           </TreeNode>
         </div>

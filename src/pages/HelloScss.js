@@ -15,10 +15,13 @@ class HelloScss extends React.Component {
   render () {
     return (
       <div className={style.HelloScss}>
-        hello World
-        <div className={c.bind(style)('child', 'foo', 'bar')}>
-          child
-          <span>child span</span>
+        <h3>通过css-loader与classnames来实现样式模块化</h3>
+        <div className="demoBlock">
+          hello World
+          <div className={c.bind(style)('child', 'foo', 'bar')}>
+            child
+            <span>child span</span>
+          </div>
         </div>
       </div>
     );

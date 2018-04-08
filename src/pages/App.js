@@ -1,8 +1,8 @@
 import React from 'react';
 import {BrowserRouter as Router, Link} from 'react-router-dom';
 
-import RouterView from '../components/RouterView';
-import {rawRouterList} from '../router/index';
+import RouterView from '@/components/RouterView';
+import {rawRouterList} from '@/router/index';
 import s from './App.css';
 
 class AppComponent extends React.Component {

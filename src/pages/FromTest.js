@@ -14,7 +14,7 @@ class FormTest extends React.Component {
   }
 
   handleChange (e) {
-    this.setState({inp1: e.target.value})
+    this.setState({inp1: e.target.value});
   }
 
   handleChange2 (e) {

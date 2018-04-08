@@ -1,30 +1,30 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
-import AuthA from './src/AuthA';
-import AuthB from './src/AuthB';
+import RouterView from '@/components/RouterView';
 
 // 参考文档 https://reacttraining.com/react-router/web/example/basic
 class RouterTest extends React.Component {
   constructor (props) {
     super(props);
   }
-
+  
   componentDidMount () {
-    console.log(this.props.match);
+    console.log('routerTest的props:', this.props);
   }
-
+  
   render () {
+    let pathPar = this.props.match.url;
+    
     return (
       <div className="RouterTest">
-        <Link to={`${this.props.match}/AuthA`}>AuthA</Link>
-        <Link to={`${this.props.match}/AuthB`}>AuthB</Link>
-        <hr/>
-
         <h3>路由鉴权</h3>
+        <hr/>
+        <Link to={`${pathPar}/AuthA`}>跳到AuthA</Link> <br/>
+        <Link to={`${pathPar}/AuthB`}>跳到AuthB</Link>
+        
         <div className="demoBlock">
-          <Router path={`${this.props.match}/AuthA`} component={AuthA}></Router>
-          <Router path={`${this.props.match}/AuthB`} component={AuthB}></Router>
+          <RouterView pathPar={pathPar}/>
         </div>
       </div>
     );
