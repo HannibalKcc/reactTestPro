@@ -12,8 +12,8 @@
   }
   html {
     font-size: 16px;
-    background: #6787a2;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #C06C84, #6C5B7B, #6787a2);  /* Chrome 10-25, Safari 5.1-6 */
+    background: #6787a2; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #C06C84, #6C5B7B, #6787a2); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #C06C84, #6C5B7B, #6787a2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
   html, body, h1, h2, h3, h4, h5, h6, div, dl, dt, dd, ul, ol, li, p, blockquote, pre, hr, figure, table, caption, th, td, form, fieldset, legend, input, button, textarea, menu {
@@ -81,6 +81,14 @@
   }
   a, a:hover {
     color: #333;
+  }
+  h2 {
+    margin-bottom: 10px;
+    font-size: 180%;
+  }
+  h3 {
+    margin-bottom: 10px;
+    font-size: 160%;
   }
 }
 

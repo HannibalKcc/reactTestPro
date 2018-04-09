@@ -1,3 +1,4 @@
+// 暂无使用
 import React from 'react';
 
 function HOCrouter (RouterItem) {
@@ -5,13 +6,13 @@ function HOCrouter (RouterItem) {
     constructor (props) {
       super(props);
     }
-
+    
     render () {
       return (
         <RouterItem data={this.state.data} {...this.props}/>
       );
     }
-  }
+  };
 }
 
 export default HOCrouter;

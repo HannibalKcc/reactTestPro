@@ -6,9 +6,21 @@ import {rawRouterList} from '@/router/index';
 import s from './App.css';
 
 class AppComponent extends React.Component {
+  async routerDialog (msg, cb) {
+    let res = false;
+    console.log('msg:' + msg, '1.5s后路由才会跳转哦');
+    await new Promise((resolve) => setTimeout(() => {
+      // 这里设置自定义弹窗 并且处理cb
+      console.log('res changed! 路由已经跳转。');
+      res = true;
+      resolve();
+    }, 1500));
+    cb(res);
+  }
+  
   render () {
     return (
-      <Router>
+      <Router getUserConfirmation={this.routerDialog}>
         <div className={s["app-wrap"]}>
           <h1 className={s["txt"]}>从vue到react到死亡~</h1>
           <div className={s["ctx-wrap"]}>

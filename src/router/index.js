@@ -4,6 +4,8 @@ import Tree from '../pages/Tree/Tree';
 import RouterTest from '../pages/RouterTest/RouterTest';
 import AuthA from '../pages/RouterTest/src/AuthA';
 import AuthB from '../pages/RouterTest/src/AuthB';
+import AuthC from '../pages/RouterTest/src/AuthC';
+import AuthD from '../pages/RouterTest/src/AuthD';
 import Login from '../pages/RouterTest/src/Login';
 
 const rawRouterList = [
@@ -28,6 +30,8 @@ const rawRouterList = [
     child: [
       {path: 'AuthA', component: AuthA},
       {path: 'AuthB', component: AuthB, requireLogin: true},
+      {path: 'AuthC', component: AuthC},
+      {path: 'AuthD', component: AuthD},
       {path: 'Login', component: Login}
     ]
   }

@@ -8,25 +8,25 @@ class FormTest extends React.Component {
       valCheck: true,
       valSele: 'cat'
     };
-
+    
     this.handleChange = this.handleChange.bind(this);
     this.handleChange2 = this.handleChange2.bind(this);
   }
-
+  
   handleChange (e) {
     this.setState({inp1: e.target.value});
   }
-
+  
   handleChange2 (e) {
     const target = e.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = target.name;
-
+    
     this.setState({
       [name]: value
     });
   }
-
+  
   render () {
     return (
       <div className='FormTest'>
@@ -41,7 +41,9 @@ class FormTest extends React.Component {
           <input type="text" value={this.state.inp1} onChange={this.handleChange}/>
           <br/>
           {this.state.valCheck + ',' + this.state.valSele}
-          <input type="checkbox" name="valCheck" checked={this.state.valCheck} onChange={this.handleChange2}/>
+          <input type="checkbox" name="valCheck"
+                 checked={this.state.valCheck}
+                 onChange={this.handleChange2}/>
           <select name="valSele" value={this.state.valSele}
                   onChange={this.handleChange2}>
             {['dog', 'cat', 'tigger', 'monkey'].map((item, idx) => (
