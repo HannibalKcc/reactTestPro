@@ -31,6 +31,8 @@ class RouterTest extends React.Component {
         <button onClick={e => this.hanldePush(pathPar)}>不用Link跳转路由</button>
         <br/>
         <Link to={`${pathPar}/AuthD`}>跳到AuthD-->History Block</Link>
+        <br/>
+        <Link to={`${pathPar}/AuthE`}>跳到AuthE-->异步组件</Link>
         <div className="demoBlock">
           <RouterView pathPar={pathPar}/>
         </div>

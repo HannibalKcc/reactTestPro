@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Redirect} from 'react-router-dom';
+import {Switch, Route, Redirect} from 'react-router-dom';
 
 import routerList from '../router';
 
@@ -24,18 +24,20 @@ class RouterView extends React.Component {
         return item.path.match(this.props.pathPar) && item.path !== this.props.pathPar; // 去除父节点本身，避免重复构造
       }
     });
-    
     return (
       <React.Fragment>
-        {resList.map(item => (
-          <Route path={item.path} key={item.path}
-                 render={props =>
-                   this.isPass(item)
-                     ? (<item.component {...props}/>) // 传递match
-                     : (<Redirect to={{pathname: '/RouterTest/Login', state: {from: props.location}}}/>)
-                 }
-          />
-        ))}
+        <Switch>
+          {resList.map(item => (
+            <Route path={item.path === '/404' ? undefined : item.path}
+                   key={item.path}
+                   render={props =>
+                     this.isPass(item)
+                       ? (<item.component {...props}/>) // 传递match
+                       : (<Redirect to={{pathname: '/RouterTest/Login', state: {from: props.location}}}/>)
+                   }
+            />
+          ))}
+        </Switch>
       </React.Fragment>
     );
   }

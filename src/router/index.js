@@ -1,3 +1,8 @@
+import Loadable from 'react-loadable';
+
+import NotMatch from '../components/NotMatch';
+import LoadingCom from '../components/LoadingCom';
+
 import HelloScss from '../pages/HelloScss';
 import FromTest from '../pages/FromTest';
 import Tree from '../pages/Tree/Tree';
@@ -8,10 +13,9 @@ import AuthC from '../pages/RouterTest/src/AuthC';
 import AuthD from '../pages/RouterTest/src/AuthD';
 import Login from '../pages/RouterTest/src/Login';
 
+const AuthE = () => import('@/pages/RouterTest/src/AuthE'); // 异步写法
+
 const rawRouterList = [
-  // {
-  //   path: '/'
-  // },
   {
     path: '/HelloScss',
     component: HelloScss
@@ -32,11 +36,25 @@ const rawRouterList = [
       {path: 'AuthB', component: AuthB, requireLogin: true},
       {path: 'AuthC', component: AuthC},
       {path: 'AuthD', component: AuthD},
+      {
+        path: 'AuthE',
+        component: asyncCom(AuthE)
+      },
       {path: 'Login', component: Login}
     ]
+  },
+  {
+    // 一定要放在最后，而且搭配<Switch/>使用
+    path: '/404',
+    component: NotMatch
   }
 ];
 
+/**
+ * fn copy 深度拷贝
+ * @param {obj，arr}
+ * @return {obj}
+ */
 function copy (aObject) {
   var bObject, v, k;
   bObject = Array.isArray(aObject) ? [] : {};
@@ -47,6 +65,12 @@ function copy (aObject) {
   return bObject;
 }
 
+/**
+ * fn flat 数据扁化，递归取出所有的child并按顺序返回
+ * @param {arr}
+ * @param {string}
+ * @return {Loadable}
+ */
 function flat (tar, parPath = '') {
   let result = [];
   if (Array.isArray(tar)) {
@@ -61,6 +85,19 @@ function flat (tar, parPath = '') {
     if (tar.child) result = [...result, ...flat(tar.child, o.path)];
   }
   return result;
+}
+
+/**
+ * fn asyncCom 组件异步化
+ * @param {fn} 一个函数，返回import()的执行结果
+ * @return {obj}
+ */
+function asyncCom (fn) {
+  if (typeof fn !== 'function') throw new Error('param: fn is not a function!');
+  return Loadable({
+    loader: fn,
+    loading: LoadingCom
+  });
 }
 
 const routerList = flat(rawRouterList);
