@@ -6,7 +6,7 @@ import {rawRouterList} from '@/router/index';
 import s from './App.css';
 
 class AppComponent extends React.Component {
-  async routerDialog (msg, cb) {
+  async routerDialog(msg, cb) {
     let res = false;
     console.log('msg:' + msg, '\n1.5s后路由才会跳转哦');
     await new Promise((resolve) => setTimeout(() => {
@@ -17,27 +17,29 @@ class AppComponent extends React.Component {
     }, 1500));
     cb(res);
   }
-  
-  render () {
+
+  render() {
     return (
       <Router getUserConfirmation={this.routerDialog}>
-        <div className={s["app-wrap"]}>
-          <h1 className={s["txt"]}>从vue到react到死亡~</h1>
-          <div className={s["ctx-wrap"]}>
-            <ul className={s["router-list"]}>
+        <div className={s['app-wrap']}>
+          <h1 className={s['txt']}>从vue到react~</h1>
+          <div className={s['ctx-wrap']}>
+            <ul className={s['router-list']}>
               {rawRouterList.map((item, index) => (
                 <li key={index}>
-                  <Route path={item.path}
-                         children={({match}) => (
-                           <Link to={item.path}>
-                             {(match ? '> ' : '') + item.path}
-                           </Link>
-                         )}
+                  {/* eslint-disable react/no-children-prop */}
+                  <Route
+                    path={item.path}
+                    children={({match}) => (
+                      <Link to={item.path}>
+                        {(match ? '> ' : '') + item.path}
+                      </Link>
+                    )}
                   />
                 </li>
               ))}
             </ul>
-            <div className={s["router-view"]}>
+            <div className={s['router-view']}>
               <RouterView/>
             </div>
           </div>

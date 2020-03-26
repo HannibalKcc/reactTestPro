@@ -23,6 +23,7 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
+    'space-before-function-paren': 0,
     // 关闭注释空格问题
     'spaced-comment': 0,
     // 允许空行的默认缩进

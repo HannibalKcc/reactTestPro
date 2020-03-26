@@ -12,6 +12,7 @@ import AuthB from '../pages/RouterTest/src/AuthB';
 import AuthC from '../pages/RouterTest/src/AuthC';
 import AuthD from '../pages/RouterTest/src/AuthD';
 import Login from '../pages/RouterTest/src/Login';
+import TestReactHook from '../pages/TestReactHook/TestReactHook';
 
 const AuthE = () => import('@/pages/RouterTest/src/AuthE'); // 异步写法
 
@@ -42,6 +43,10 @@ const rawRouterList = [
       },
       {path: 'Login', component: Login}
     ]
+  },
+  {
+    path: '/TestReactHook',
+    component: TestReactHook
   },
   {
     // 一定要放在最后，而且搭配<Switch/>使用
